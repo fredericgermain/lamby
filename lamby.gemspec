@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/customink/lamby"
   spec.license       = "MIT"
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+    Dir.glob('**/*', File::FNM_DOTMATCH).reject { |f| File.directory?(f) || f.match(%r{^(test|spec|features|.git)/}) }
   end
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
