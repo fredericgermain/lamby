@@ -78,7 +78,7 @@ module Lamby
     def build_query_string
       return if event['queryStringParameters'].nil?
 
-      Rack::Utils.build_nested_query(
+      ::Rack::Utils.build_nested_query(
         event.fetch('queryStringParameters')
       )
         .gsub('[', '%5B')
