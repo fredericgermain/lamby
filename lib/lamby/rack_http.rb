@@ -4,6 +4,7 @@ module Lamby
     def response(handler)
       puts "== Inside rackhttp response ==="
       if handler.base64_encodeable?
+        puts "== base64 encoding response ==="
         { isBase64Encoded: true, body: handler.body64 }
       else
         super

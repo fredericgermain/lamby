@@ -52,7 +52,10 @@ module Lamby
     end
 
     def body64
+      puts "=== inside body64 - before strict encode ===="
+      puts body
       Base64.strict_encode64(body.force_encoding('UTF-8'))
+      puts "=== inside body64 - after strict encode ===="
     rescue Encoding::UndefinedConversionError
       puts "Inside body64 - failed to encode"
       body
