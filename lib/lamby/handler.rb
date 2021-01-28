@@ -52,7 +52,7 @@ module Lamby
     end
 
     def body64
-      Base64.strict_encode64(body.encode('UTF-8'))
+      Base64.strict_encode64(body.force_encoding('UTF-8'))
     rescue Encoding::UndefinedConversionError
       puts "Inside body64 - failed to encode"
       body

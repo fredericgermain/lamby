@@ -2,6 +2,7 @@ module Lamby
   class RackHttp < Lamby::Rack
 
     def response(handler)
+      puts "== Inside rackhttp response ==="
       if handler.base64_encodeable?
         { isBase64Encoded: true, body: handler.body64 }
       else

@@ -52,7 +52,9 @@ module Lamby
 
     def body
       @body ||= if event['body'] && base64_encoded?
+        puts "========= Inside body ======"
         Base64.decode64 event['body']
+        puts "========= Finish decoding ======"
       else
         event['body']
       end
